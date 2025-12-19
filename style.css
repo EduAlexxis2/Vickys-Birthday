@@ -1,0 +1,593 @@
+:root {
+    --f1-red: #e10600;
+    --stitch-blue: #4e73df;
+    --stitch-light: #85a4ff;
+    --magic-gold: #ffbe0b;
+    --track-grey: #2d3436;
+    --off-white: #f9f9f9;
+
+    --font-heading: 'Bangers', system-ui;
+    /* Loud and fun */
+    --font-body: 'Fredoka', sans-serif;
+    /* Rounded and cute */
+    --font-magic: 'Pacifico', cursive;
+    /* Disney vibe */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--off-white);
+    color: var(--track-grey);
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto;
+    /* Sparkle cursor */
+}
+
+body.scroll-locked {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Background Patterns */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--stitch-light) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Typography */
+h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 15vw, 10rem);
+    color: var(--f1-red);
+    text-transform: uppercase;
+    line-height: 0.9;
+    text-shadow: 4px 4px 0px var(--track-grey);
+    transform: rotate(-3deg);
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--stitch-blue);
+}
+
+.magic-section h2 {
+    font-family: var(--font-magic);
+    color: var(--magic-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    font-weight: 600;
+    color: var(--f1-red);
+}
+
+/* Scroll Path - Race Track */
+.race-track-container {
+    position: fixed;
+    top: 0;
+    left: 20px;
+    height: 100vh;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.track-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: repeating-linear-gradient(to bottom,
+            var(--track-grey) 0,
+            var(--track-grey) 20px,
+            white 20px,
+            white 40px);
+    /* Checkered / Road markings */
+    transform: translateX(-50%);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.f1-car-marker {
+    position: absolute;
+    top: 10vh;
+    /* Starting position */
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    /* Facing down */
+    width: 60px;
+    transition: top 0.1s linear;
+}
+
+.f1-car-marker img {
+    width: 100%;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 2rem 2rem 2rem 100px;
+    /* Left padding for track */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    text-align: center;
+    justify-content: center;
+}
+
+.start-flag {
+    margin-top: 2rem;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    background: var(--track-grey);
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+/* Content Boxes */
+.content-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--track-grey);
+}
+
+.glass-panel {
+    border-color: var(--stitch-blue);
+    box-shadow: 10px 10px 0px var(--stitch-blue);
+}
+
+.race-panel {
+    border-color: var(--f1-red);
+    box-shadow: 10px 10px 0px var(--f1-red);
+}
+
+.magic-panel {
+    border-color: var(--magic-gold);
+    box-shadow: 10px 10px 0px var(--magic-gold);
+}
+
+.gold-panel {
+    border-color: var(--magic-gold);
+    box-shadow: 10px 10px 0px var(--magic-gold);
+    background-color: #fffdf5;
+}
+
+.trophy-sticker {
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg);
+    width: 140px;
+}
+
+/* Stickers */
+.sticker-decoration {
+    position: absolute;
+    width: 120px;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+    z-index: 5;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+}
+
+.sticker-decoration:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.stitch-sticker {
+    top: -50px;
+    right: -40px;
+    transform: rotate(15deg);
+}
+
+.ears-sticker {
+    bottom: -40px;
+    left: -40px;
+    transform: rotate(-15deg);
+}
+
+.flag-sticker {
+    font-size: 4rem;
+    top: -30px;
+    left: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 4rem;
+    background: var(--track-grey);
+    color: white;
+}
+
+.confetti-trigger {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    background: var(--f1-red);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50px;
+    transition: transform 0.1s;
+}
+
+.confetti-trigger:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .race-track-container {
+        left: 10px;
+        width: 40px;
+    }
+
+    .track-line {
+        width: 10px;
+    }
+
+    .f1-car-marker {
+        width: 40px;
+    }
+
+    .section {
+        padding: 2rem 1rem 2rem 60px;
+    }
+
+    .content-box {
+        padding: 2rem;
+    }
+}
+
+/* Memories Section - F1 Grid Style */
+.memories-section {
+    flex-direction: column;
+    text-align: center;
+    background-color: #f0f0f0;
+    /* Asphalt grey-ish light */
+    padding-bottom: 5rem;
+    overflow: hidden;
+}
+
+.f1-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Space between rows */
+    width: 100%;
+    max-width: 900px;
+    margin-top: 3rem;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Track Markings */
+.grid-track-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: repeating-linear-gradient(to bottom,
+            white 0,
+            white 40px,
+            transparent 40px,
+            transparent 70px);
+    transform: translateX(-50%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.grid-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.grid-position {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.pos-left {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.pos-right {
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-top: 60px;
+    /* Stagger effect! */
+}
+
+.pos-center {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Driver Card Style */
+.grid-card {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+    border-bottom: 4px solid var(--f1-red);
+}
+
+.grid-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(225, 6, 0, 0.2);
+}
+
+.grid-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: brightness(1.05);
+}
+
+.grid-caption {
+    font-family: var(--font-heading);
+    color: var(--track-grey);
+    font-size: 1.4rem;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .grid-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .grid-position {
+        width: 100%;
+    }
+
+    .pos-left,
+    .pos-right {
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .grid-card {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* F1 Start System */
+.start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.start-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lights-gantry {
+    background: #1a1a1a;
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
+}
+
+.light-unit {
+    background: #000;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.light-bulb {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    /* Off state */
+    transition: background-color 0.1s;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Red Light On */
+.light-bulb.on {
+    background-color: #ff0000;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+}
+
+@media (max-width: 600px) {
+    .lights-gantry {
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .light-bulb {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Letter Section */
+.letter-section {
+    background-color: var(--track-grey);
+    /* Dark background to make paper pop */
+    padding: 6rem 1rem;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.letter-paper {
+    background: #fffdf0;
+    /* Off-white paper */
+    width: 100%;
+    max-width: 700px;
+    padding: 3rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 1px solid #e0e0e0;
+}
+
+.letter-paper:hover {
+    transform: rotate(0deg) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    z-index: 10;
+}
+
+/* Paper Margin Line */
+.letter-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(255, 100, 100, 0.4);
+}
+
+.letter-content {
+    font-family: var(--font-magic);
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #444;
+    background-image: repeating-linear-gradient(transparent, transparent 1.95rem, #a8d5e5 2rem);
+    /* Blue ruled lines */
+    background-size: 100% 2rem;
+    padding-left: 2rem;
+    margin-left: 1rem;
+    min-height: 400px;
+}
+
+.letter-content h2 {
+    font-family: var(--font-magic);
+    color: var(--f1-red);
+    margin-bottom: 2rem;
+    text-shadow: none;
+    font-size: 2.2rem;
+    text-align: left;
+}
+
+.letter-signature {
+    margin-top: 3rem;
+    text-align: right;
+    font-weight: bold;
+    color: var(--stitch-blue);
+    font-size: 1.8rem;
+    transform: rotate(-5deg);
+}

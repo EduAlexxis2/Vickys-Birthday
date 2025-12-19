@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicky's Birthday GP 🏁</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="scroll-locked">
+
+    <!-- Magic Dust Container -->
+    <div id="magic-dust"></div>
+
+    <!-- F1 Start Lights Overlay -->
+    <div id="start-overlay" class="start-overlay hidden">
+        <div class="lights-gantry">
+            <div class="light-unit">
+                <div class="light-bulb"></div>
+                <div class="light-bulb"></div>
+            </div>
+            <div class="light-unit">
+                <div class="light-bulb"></div>
+                <div class="light-bulb"></div>
+            </div>
+            <div class="light-unit">
+                <div class="light-bulb"></div>
+                <div class="light-bulb"></div>
+            </div>
+            <div class="light-unit">
+                <div class="light-bulb"></div>
+                <div class="light-bulb"></div>
+            </div>
+            <div class="light-unit">
+                <div class="light-bulb"></div>
+                <div class="light-bulb"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="race-audio" src="Birthday.mp3" loop></audio>
+
+    <!-- Persistent Race Track Line -->
+    <div class="race-track-container">
+        <div class="track-line"></div>
+        <div class="f1-car-marker" id="f1-car">
+            <img src="f1_race_car_red.png" alt="Race Car">
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero: The Grand Prix -->
+        <section id="hero" class="section hero">
+            <div class="hero-content">
+                <h1 class="bounce-in">VICKY'S <br> GRAND PRIX</h1>
+                <p class="subtitle">Lights Out! And Away We Go! 🏎️💨</p>
+                <div class="start-flag">🏁 START 🏁</div>
+            </div>
+        </section>
+
+        <!-- Section 1: The Vibe (Stitch / Ohana) -->
+        <section id="vibe" class="section vibe-section">
+            <div class="content-box glass-panel slide-in-left">
+                <div class="sticker-decoration stitch-sticker">
+                    <img src="stitch_alien_sticker.png" alt="Cute Alien">
+                </div>
+                <h2>The Vibe: Ohana Means Family</h2>
+                <p>You aren't just my best friend—you're the person who makes sure nobody gets left behind. You have
+                    this way of making a room feel lighter just by walking into it.</p>
+                <p class="highlight">It’s a familiar feeling. It’s something real. It’s 100% you.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: The Power (F1 / Unstoppable) -->
+        <section id="power" class="section power-section">
+            <div class="content-box race-panel slide-in-right">
+                <div class="sticker-decoration flag-sticker">🏁</div>
+                <h2>Unstoppable Energy</h2>
+                <p>You’re calm, but powerful. Like a f1 engine idling before the lights go out. You don’t
+                    have to try hard to stand out—you just do your vibe its all.</p>
+                <p>You challenge me to be better just by being yourself. That’s some podium-level friendship right
+                    there.</p>
+            </div>
+        </section>
+
+        <!-- Section 2.5: The Champion (Best Friend Tribute) -->
+        <section id="champion" class="section champion-section">
+            <div class="content-box gold-panel scale-up">
+                <div class="sticker-decoration trophy-sticker">🏆</div>
+                <h2>The Real MVP</h2>
+                <p>And let’s be honest: You aren't just my friend. You’re my <b>Best Friend</b>. The one who
+                    listens—like
+                    actually listens—and the one who makes sense of the chaos.</p>
+                <p>You’re the only person I can be fully myself around, no filters needed. You show up, and my day
+                    becomes better instantly. You care, and you
+                    make even the ordinary days feel like a main event.</p>
+                <p class="highlight">I wouldn't trade our friendship for anything.</p>
+            </div>
+        </section>
+
+        <!-- Section: Memories (F1 Starting Grid) -->
+        <section id="memories" class="section memories-section">
+            <h2 style="font-size: 3.5rem; color: #e10600; text-shadow: 2px 2px 0px #2d3436;">STARTING GRID: LIFE</h2>
+            <p class="subtitle" style="margin-bottom: 3rem;">Pole Position in Enjoying Every Moment</p>
+
+            <div class="f1-grid-container">
+                <!-- Asphalt / Track markings -->
+                <div class="grid-track-line"></div>
+
+                <!-- Row 1 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/0604FE0A-FDA1-467B-9CF0-D4ABD30FFA84.JPG" alt="Moment 1"
+                                loading="lazy">
+                            <div class="grid-caption">Pure Joy</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/1220A85D-57B5-4611-9E40-1D8A15084F17.JPG" alt="Moment 2"
+                                loading="lazy">
+                            <div class="grid-caption">Best Vibes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/283F66E8-E0F4-4F9D-A26E-ED00D2DCEB29.JPG" alt="Moment 3"
+                                loading="lazy">
+                            <div class="grid-caption">Unstoppable</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/2B00B791-5ADD-435A-871C-81C70AD31AF5.JPG" alt="Moment 4"
+                                loading="lazy">
+                            <div class="grid-caption">Living It Up</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/43C02E51-308F-4E5F-BA92-1B2C2C05B0B1.JPG" alt="Moment 5"
+                                loading="lazy">
+                            <div class="grid-caption">Making Memories</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/67569D9C-93E0-4FE1-82A4-5B77E60B2FD0.JPG" alt="Moment 6"
+                                loading="lazy">
+                            <div class="grid-caption">No Brakes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/7AE3723A-F54F-4010-BCDD-3B32AD0C5FE4.JPG" alt="Moment 7"
+                                loading="lazy">
+                            <div class="grid-caption">Full Speed</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/A6C6321E-A35F-4266-A462-F959C139243C.JPG" alt="Moment 8"
+                                loading="lazy">
+                            <div class="grid-caption">Just Us</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/A6DF6C8E-A3DD-4A65-9C0A-CA7282087927.JPG" alt="Moment 9"
+                                loading="lazy">
+                            <div class="grid-caption">Smile!</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/CBFACA18-369B-4462-9D5C-0AEB44E8F618.JPG" alt="Moment 10"
+                                loading="lazy">
+                            <div class="grid-caption">Winning</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="grid-row">
+                    <div class="grid-position pos-left">
+                        <div class="grid-card">
+                            <img src="Our Pictures/E36FE262-C1E5-4769-80A8-8E6D8AEBD72D.JPG" alt="Moment 11"
+                                loading="lazy">
+                            <div class="grid-caption">Adventure</div>
+                        </div>
+                    </div>
+                    <div class="grid-position pos-right">
+                        <div class="grid-card">
+                            <img src="Our Pictures/F47310EF-55AE-4456-8823-3C3555F78D8B.JPG" alt="Moment 12"
+                                loading="lazy">
+                            <div class="grid-caption">Forever</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 7 (Single item for last one) -->
+                <div class="grid-row">
+                    <div class="grid-position pos-center">
+                        <div class="grid-card">
+                            <img src="Our Pictures/F70D9F2F-0C75-47D9-9DE7-2C4E3B116B79.JPG" alt="Moment 13"
+                                loading="lazy">
+                            <div class="grid-caption">The Best</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: The Magic (Disney / Sparkle) -->
+        <section id="magic" class="section magic-section">
+            <div class="content-box magic-panel scale-up">
+                <div class="sticker-decoration ears-sticker">
+                    <img src="magic_ears_sparkle.png" alt="Magic Ears">
+                </div>
+                <h2>Pure Magic</h2>
+                <p>There’s a comfort when talking to you, but also something that sparks all around. Like fireworks.</p>
+                <p class="final-text">Having you in my life is a total win. I am completely honored to be on this track
+                    with you.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Birthday Letter -->
+        <section id="letter" class="section letter-section">
+            <div class="letter-paper">
+                <div class="letter-content">
+                    <h2>Happy Birthday, Vicky.</h2>
+                    <p>
+                        I hope today feels like a pause in the best way. Like the world slowing down just enough to
+                        remind you that this day is yours. No rush, no pressure—just good energy, good moments, and
+                        people who genuinely want to see you happy.
+                    </p>
+                    <p>
+                        I hope this year brings clarity where there’s been doubt, excitement where there’s been routine,
+                        and peace where it’s been needed most.
+                    </p>
+                    <p>
+                        I know these last couple of days haven’t been easy, and I just want you to know you don’t have
+                        to go through anything alone. I’m always here for you, whenever you need it—no matter what.
+                    </p>
+                    <p>
+                        Birthdays are a reminder of growth, of how far you’ve come, and of everything still ahead. And
+                        honestly, there’s a lot ahead of you. Good things. Big things. Things that fit you.
+                    </p>
+                    <p>
+                        And I know I might not be the best person, but I’m really grateful you chose me to be in your
+                        life.
+                    </p>
+                    <p>
+                        Enjoy today. Celebrate it your way.
+                    </p>
+                    <div class="letter-signature">
+                        Happy birthday 🎉
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h3>HAPPY BIRTHDAY!</h3>
+            <p>To the best co-pilot ever.</p>
+            <div class="confetti-trigger">🎉 CLICK FOR PARTY 🎉</div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
