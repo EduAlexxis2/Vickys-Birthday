@@ -301,30 +301,6 @@ img {
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .race-track-container {
-        left: 10px;
-        width: 40px;
-    }
-
-    .track-line {
-        width: 10px;
-    }
-
-    .f1-car-marker {
-        width: 40px;
-    }
-
-    .section {
-        padding: 2rem 1rem 2rem 60px;
-    }
-
-    .content-box {
-        padding: 2rem;
-    }
-}
-
 /* Memories Section - F1 Grid Style */
 .memories-section {
     flex-direction: column;
@@ -431,10 +407,76 @@ img {
     letter-spacing: 1px;
 }
 
+/* Mobile & Responsive */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 15vw;
+        /* Make it fit */
+        margin-top: 2rem;
+    }
+
+    .race-track-container {
+        left: 5px;
+        width: 30px;
+    }
+
+    .track-line {
+        width: 8px;
+    }
+
+    .f1-car-marker {
+        width: 35px;
+        left: 50%;
+        margin-left: -2px;
+        /* Slight optical adjustment */
+    }
+
+    .section {
+        padding: 4rem 1.5rem 4rem 50px;
+        /* Reduced left padding, but kept enough for track */
+        align-items: flex-start;
+        /* Better for reading on phone */
+    }
+
+    .hero {
+        align-items: center;
+        padding-left: 1rem;
+        /* Center hero regardless of track */
+    }
+
+    .content-box {
+        padding: 2rem 1.5rem;
+        width: 100%;
+    }
+
+    /* Stickers easier on mobile */
+    .stitch-sticker {
+        top: -40px;
+        right: -10px;
+        width: 80px;
+        font-size: 3rem;
+    }
+
+    .ears-sticker {
+        bottom: -30px;
+        left: -10px;
+        width: 80px;
+    }
+
+    .flag-sticker {
+        left: 0;
+        top: -40px;
+    }
+
+    .trophy-sticker {
+        width: 100px;
+        top: -50px;
+    }
+
+    /* Stack the grid properly */
     .grid-row {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
     }
 
     .grid-position {
@@ -448,10 +490,44 @@ img {
         margin: 0;
     }
 
-
     .grid-card {
-        max-width: 90%;
+        max-width: 100%;
         margin: 0 auto;
+    }
+
+    /* Letter Adjustments */
+    .letter-section {
+        padding: 2rem 1rem;
+    }
+
+    .letter-paper {
+        padding: 2rem 1rem;
+    }
+
+    .letter-content {
+        padding-left: 1rem;
+        margin-left: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 2rem;
+        /* Matches bg */
+    }
+
+    .letter-paper::before {
+        left: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    /* Very small phones */
+    h1 {
+        font-size: 18vw;
+    }
+
+    .section {
+        padding-left: 45px;
+        /* Minimal space for track */
+        padding-right: 1rem;
     }
 }
 
