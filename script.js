@@ -88,13 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 0. UNLOCK AUDIO (Mobile/Browser Policy Fix)
             // We must play() immediately within the user interaction (click)
-            // so we can play it later in the setTimeout.
+            // Safari requires the audio to STAY playing to maintain the session.
             if (audio) {
-                audio.volume = 0; // Mute initially so we don't hear a blip
-                audio.play().then(() => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                }).catch(e => console.log("Audio unlock failed:", e));
+                audio.volume = 0; // Mute initially
+                audio.play().catch(e => console.log("Audio unlock failed:", e));
             }
 
             // Initialize Audio Context for Beeps & Engine
@@ -187,8 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // Play Background Music
                         if (audio) {
-                            audio.volume = 0.5;
-                            audio.play().catch(e => console.log("Audio play failed:", e));
+                            audio.currentTime = 0; // Restart track
+                            audio.volume = 0.5; // Unmute
+                            // audio.play(); // Already playing
                         }
 
                         // UNLOCK SCROLL
