@@ -86,6 +86,17 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. Show Overlay
             overlay.classList.remove('hidden');
 
+            // 0. UNLOCK AUDIO (Mobile/Browser Policy Fix)
+            // We must play() immediately within the user interaction (click)
+            // so we can play it later in the setTimeout.
+            if (audio) {
+                audio.volume = 0; // Mute initially so we don't hear a blip
+                audio.play().then(() => {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }).catch(e => console.log("Audio unlock failed:", e));
+            }
+
             // Initialize Audio Context for Beeps & Engine
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
