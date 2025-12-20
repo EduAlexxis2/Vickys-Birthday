@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // We must play() immediately within the user interaction (click)
             // Safari requires the audio to STAY playing to maintain the session.
             if (audio) {
-                audio.volume = 0; // Mute initially
+                audio.muted = true; // Use muted property for iOS
                 audio.play().catch(e => console.log("Audio unlock failed:", e));
             }
 
@@ -185,7 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Play Background Music
                         if (audio) {
                             audio.currentTime = 0; // Restart track
-                            audio.volume = 0.5; // Unmute
+                            audio.muted = false; // Unmute
+                            audio.volume = 0.5; // Set volume just in case (for non-iOS)
                             // audio.play(); // Already playing
                         }
 
